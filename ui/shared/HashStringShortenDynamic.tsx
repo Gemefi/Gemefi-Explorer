@@ -32,10 +32,10 @@ const HashStringShortenDynamic = ({ hash, fontWeight = '400', isTooltipDisabled,
   const elementRef = useRef<HTMLSpanElement>(null);
   const [ displayedString, setDisplayedString ] = React.useState(hash);
 
-  const isFontFaceLoaded = useFontFaceObserver([
-    { family: BODY_TYPEFACE, weight: String(fontWeight) as FontFace['weight'] },
-    { family: HEADING_TYPEFACE, weight: String(fontWeight) as FontFace['weight'] },
-  ]);
+  // const isFontFaceLoaded = useFontFaceObserver([
+  //   { family: BODY_TYPEFACE, weight: String(fontWeight) as FontFace['weight'] },
+  //   { family: HEADING_TYPEFACE, weight: String(fontWeight) as FontFace['weight'] },
+  // ]);
 
   const calculateString = useCallback(() => {
     const parent = elementRef?.current?.parentNode as HTMLElement;
@@ -78,7 +78,7 @@ const HashStringShortenDynamic = ({ hash, fontWeight = '400', isTooltipDisabled,
   // that's why there are separate useEffect hooks
   useEffect(() => {
     calculateString();
-  }, [ calculateString, isFontFaceLoaded ]);
+  }, [ calculateString ]);
 
   useEffect(() => {
     const resizeHandler = _debounce(calculateString, 100);

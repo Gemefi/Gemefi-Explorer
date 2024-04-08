@@ -12,7 +12,7 @@ import { nbsp } from 'lib/html-entities';
 const relativeTimeConfig = {
   thresholds: [
     { l: 's', r: 1 },
-    { l: 'ss', r: 59, d: 'second' },
+    // { l: 'ss', r: 59, d: 'second' },
     { l: 'm', r: 1 },
     { l: 'mm', r: 59, d: 'minute' },
     { l: 'h', r: 1 },
@@ -26,8 +26,9 @@ const relativeTimeConfig = {
     { l: 'y', r: 17 },
     { l: 'yy', d: 'year' },
   ],
+  strict: true,
+  rounding: Math.floor,
 };
-
 dayjs.extend(relativeTime, relativeTimeConfig);
 dayjs.extend(updateLocale);
 dayjs.extend(localizedFormat);
@@ -40,11 +41,9 @@ dayjs.updateLocale('en', {
     llll: `MMM DD YYYY HH:mm:ss A (Z${ nbsp }UTC)`,
   },
   relativeTime: {
-    s: '1s',
-    ss: '%ds',
+    s: "%ds",
     future: 'in %s',
     past: '%s ago',
-    m: '1m',
     mm: '%dm',
     h: '1h',
     hh: '%dh',

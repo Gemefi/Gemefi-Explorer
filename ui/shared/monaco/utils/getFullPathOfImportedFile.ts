@@ -1,7 +1,7 @@
 import stripLeadingSlash from 'lib/stripLeadingSlash';
 import stripTrailingSlash from 'lib/stripTrailingSlash';
 
-// FIXME support multiline imports - https://base-goerli.blockscout.com/address/0x3442844D5d4938CA70f8C227dB88F6069C0b82A9?tab=contract
+// FIXME support multiline imports - https://base-goerli.gemefi.io/address/0x3442844D5d4938CA70f8C227dB88F6069C0b82A9?tab=contract
 
 export default function getFullPathOfImportedFile(baseFilePath: string, importedFilePath: string, compilerRemappings?: Array<string>) {
   if (importedFilePath[0] !== '.') {

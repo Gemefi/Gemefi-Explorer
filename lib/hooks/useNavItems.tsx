@@ -4,7 +4,6 @@ import React from 'react';
 import type { NavItemInternal, NavItem, NavGroupItem } from 'types/client/navigation-items';
 
 import config from 'configs/app';
-import { rightLineArrow } from 'lib/html-entities';
 import UserAvatar from 'ui/shared/UserAvatar';
 
 interface ReturnType {
@@ -26,7 +25,7 @@ export default function useNavItems(): ReturnType {
   const pathname = router.pathname;
 
   return React.useMemo(() => {
-    let blockchainNavItems: Array<NavItem> | Array<Array<NavItem>> = [];
+    // let blockchainNavItems: Array<NavItem> | Array<Array<NavItem>> = [];
 
     const topAccounts: NavItem | null = !config.UI.views.address.hiddenViews?.top_accounts ? {
       text: 'Top accounts',
@@ -53,127 +52,6 @@ export default function useNavItems(): ReturnType {
       isActive: pathname === '/ops' || pathname === '/op/[hash]',
     } : null;
 
-    const verifiedContracts: NavItem | null =
-     {
-       text: 'Verified contracts',
-       nextRoute: { pathname: '/verified-contracts' as const },
-       icon: 'verified',
-       isActive: pathname === '/verified-contracts',
-     };
-    const ensLookup = config.features.nameService.isEnabled ? {
-      text: 'Name services lookup',
-      nextRoute: { pathname: '/name-domains' as const },
-      icon: 'ENS',
-      isActive: pathname === '/name-domains' || pathname === '/name-domains/[name]',
-    } : null;
-    const validators = config.features.validators.isEnabled ? {
-      text: 'Top validators',
-      nextRoute: { pathname: '/validators' as const },
-      icon: 'validator',
-      isActive: pathname === '/validators',
-    } : null;
-
-    const rollupFeature = config.features.rollup;
-
-    if (rollupFeature.isEnabled && rollupFeature.type === 'zkEvm') {
-      blockchainNavItems = [
-        [
-          txs,
-          userOps,
-          blocks,
-          {
-            text: 'Txn batches',
-            nextRoute: { pathname: '/batches' as const },
-            icon: 'txn_batches',
-            isActive: pathname === '/batches' || pathname === '/batches/[number]',
-          },
-        ].filter(Boolean),
-        [
-          topAccounts,
-          validators,
-          verifiedContracts,
-          ensLookup,
-        ].filter(Boolean),
-      ];
-    } else if (rollupFeature.isEnabled && rollupFeature.type === 'optimistic') {
-      blockchainNavItems = [
-        [
-          txs,
-          // eslint-disable-next-line max-len
-          { text: `Deposits (L1${ rightLineArrow }L2)`, nextRoute: { pathname: '/deposits' as const }, icon: 'arrows/south-east', isActive: pathname === '/deposits' },
-          // eslint-disable-next-line max-len
-          { text: `Withdrawals (L2${ rightLineArrow }L1)`, nextRoute: { pathname: '/withdrawals' as const }, icon: 'arrows/north-east', isActive: pathname === '/withdrawals' },
-        ],
-        [
-          blocks,
-          // eslint-disable-next-line max-len
-          { text: 'Txn batches', nextRoute: { pathname: '/batches' as const }, icon: 'txn_batches', isActive: pathname === '/batches' },
-          // eslint-disable-next-line max-len
-          { text: 'Output roots', nextRoute: { pathname: '/output-roots' as const }, icon: 'output_roots', isActive: pathname === '/output-roots' },
-        ],
-        [
-          userOps,
-          topAccounts,
-          validators,
-          verifiedContracts,
-          ensLookup,
-        ].filter(Boolean),
-      ];
-    } else if (rollupFeature.isEnabled && rollupFeature.type === 'shibarium') {
-      blockchainNavItems = [
-        [
-          txs,
-          // eslint-disable-next-line max-len
-          { text: `Deposits (L1${ rightLineArrow }L2)`, nextRoute: { pathname: '/deposits' as const }, icon: 'arrows/south-east', isActive: pathname === '/deposits' },
-          // eslint-disable-next-line max-len
-          { text: `Withdrawals (L2${ rightLineArrow }L1)`, nextRoute: { pathname: '/withdrawals' as const }, icon: 'arrows/north-east', isActive: pathname === '/withdrawals' },
-        ],
-        [
-          blocks,
-          userOps,
-          topAccounts,
-          verifiedContracts,
-          ensLookup,
-        ].filter(Boolean),
-      ];
-    } else if (rollupFeature.isEnabled && rollupFeature.type === 'zkSync') {
-      blockchainNavItems = [
-        [
-          txs,
-          userOps,
-          blocks,
-          {
-            text: 'Txn batches',
-            nextRoute: { pathname: '/batches' as const },
-            icon: 'txn_batches',
-            isActive: pathname === '/batches' || pathname === '/batches/[number]',
-          },
-        ].filter(Boolean),
-        [
-          topAccounts,
-          validators,
-          verifiedContracts,
-          ensLookup,
-        ].filter(Boolean),
-      ];
-    } else {
-      blockchainNavItems = [
-        txs,
-        userOps,
-        blocks,
-        topAccounts,
-        validators,
-        verifiedContracts,
-        ensLookup,
-        config.features.beaconChain.isEnabled && {
-          text: 'Withdrawals',
-          nextRoute: { pathname: '/withdrawals' as const },
-          icon: 'arrows/north-east',
-          isActive: pathname === '/withdrawals',
-        },
-      ].filter(Boolean);
-    }
-
     const apiNavItems: Array<NavItem> = [
       config.features.restApiDocs.isEnabled ? {
         text: 'REST API',
@@ -190,22 +68,20 @@ export default function useNavItems(): ReturnType {
       !config.UI.sidebar.hiddenLinks?.rpc_api && {
         text: 'RPC API',
         icon: 'RPC',
-        url: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
+        url: 'https://docs.gemefi.io/for-users/api/rpc-endpoints',
       },
       !config.UI.sidebar.hiddenLinks?.eth_rpc_api && {
         text: 'Eth RPC API',
         icon: 'RPC',
-        url: ' https://docs.blockscout.com/for-users/api/eth-rpc',
+        url: ' https://docs.gemefi.io/for-users/api/eth-rpc',
       },
     ].filter(Boolean);
 
     const mainNavItems: ReturnType['mainNavItems'] = [
-      {
-        text: 'Blockchain',
-        icon: 'globe-b',
-        isActive: blockchainNavItems.flat().some(item => isInternalItem(item) && item.isActive),
-        subItems: blockchainNavItems,
-      },
+      blocks,
+      txs,
+      userOps,
+      topAccounts,
       {
         text: 'Tokens',
         nextRoute: { pathname: '/tokens' as const },

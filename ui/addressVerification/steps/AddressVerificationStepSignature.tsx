@@ -142,7 +142,7 @@ const AddressVerificationStepSignature = ({ address, signingMessage, contractCre
     );
   })();
 
-  const contactUsLink = <span>contact us <Link href="mailto:help@blockscout.com">help@blockscout.com</Link></span>;
+  const contactUsLink = <span>contact us <Link href="mailto:help@gemefi.io">help@gemefi.io</Link></span>;
 
   const rootError = (() => {
     switch (formState.errors.root?.type) {
@@ -187,8 +187,8 @@ const AddressVerificationStepSignature = ({ address, signingMessage, contractCre
     <form noValidate onSubmit={ onSubmit }>
       { rootError && <Alert status="warning" mb={ 6 }>{ rootError }</Alert> }
       <Box mb={ 8 }>
-        <span>Please select the address to sign and copy the message and sign it using the Blockscout message provider of your choice. </span>
-        <Link href="https://docs.blockscout.com/for-users/my-account/verified-addresses/copy-and-sign-message" target="_blank">
+        <span>Please select the address to sign and copy the message and sign it using the Gemefi message provider of your choice. </span>
+        <Link href="https://docs.gemefi.io/for-users/my-account/verified-addresses/copy-and-sign-message" target="_blank">
           Additional instructions
         </Link>
         <span>. If you do not see your address here but are sure that you are the owner of the contract, kindly </span>

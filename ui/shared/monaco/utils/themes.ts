@@ -12,9 +12,9 @@ export const light = {
     'tab.inactiveForeground': '#4a5568', // gray.600
     'tab.border': 'rgb(243, 243, 243)',
 
-    'icon.foreground': '#616161',
+    'icon.foreground': '#25BF19',
 
-    'input.foreground': '#616161',
+    'input.foreground': '#25BF19',
     'input.background': '#fff',
 
     'list.inactiveSelectionBackground': '#e4e6f1',
@@ -34,7 +34,7 @@ export const light = {
     'custom.inputOption.hoverBackground': 'rgba(184, 184, 184, 0.31)',
 
     // don't know the name of this variables in vscode
-    'custom.fileLink.hoverForeground': '#4299E1', // blue.400
+    'custom.fileLink.hoverForeground': '#25BF19', // blue.400
     'custom.riskWarning.primaryBackground': '#FEEBCB', // orange.100
     'custom.riskWarning.background': '#FFFAF0', // orange.50
     'custom.mainContract.header': 'rgba(233, 216, 253, 1)', // purple.100

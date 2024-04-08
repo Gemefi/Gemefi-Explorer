@@ -16,14 +16,14 @@ export const apps = [
     twitter: 'https://twitter.com/HopProtocol',
   },
   {
-    author: 'Blockscout',
+    author: 'Gemefi',
     id: 'token-approval-tracker',
     title: 'Token Approval Tracker',
-    logo: 'https://approval-tracker.apps.blockscout.com/icon-192.png',
+    logo: 'https://approval-tracker.apps.gemefi.io/icon-192.png',
     categories: [ 'Infra & Dev tooling' ],
     shortDescription: 'Token Approval Tracker shows all approvals for any ERC20-compliant tokens and NFTs and lets to revoke them or adjust the approved amount.',
-    site: 'https://docs.blockscout.com/for-users/blockscout-apps/token-approval-tracker',
+    site: 'https://docs.gemefi.io/for-users/Gemefi-apps/token-approval-tracker',
     description: 'Token Approval Tracker shows all approvals for any ERC20-compliant tokens and NFTs and lets to revoke them or adjust the approved amount.',
-    url: 'https://approval-tracker.apps.blockscout.com/',
+    url: 'https://approval-tracker.apps.gemefi.io/',
   },
 ];

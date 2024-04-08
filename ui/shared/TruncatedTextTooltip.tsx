@@ -14,9 +14,9 @@ const TruncatedTextTooltip = ({ children, label }: Props) => {
   const childRef = React.useRef<HTMLElement>(null);
   const [ isTruncated, setTruncated ] = React.useState(false);
 
-  const isFontFaceLoaded = useFontFaceObserver([
-    { family: BODY_TYPEFACE },
-  ]);
+  // const isFontFaceLoaded = useFontFaceObserver([
+  //   { family: BODY_TYPEFACE },
+  // ]);
 
   const updatedTruncateState = React.useCallback(() => {
     if (childRef.current) {
@@ -35,7 +35,7 @@ const TruncatedTextTooltip = ({ children, label }: Props) => {
   // let's keep it as it is until the first issue
   React.useEffect(() => {
     updatedTruncateState();
-  }, [ updatedTruncateState, isFontFaceLoaded ]);
+  }, [ updatedTruncateState ]);
 
   // we want to do recalculation when isFontFaceLoaded flag is changed
   // but we don't want to create more resize event listeners

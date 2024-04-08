@@ -42,7 +42,8 @@ const SocketNewItemsNotice = chakra(({ children, className, url, num, alert, typ
     }
 
     if (!num) {
-      return `scanning new ${ name }s...`;
+      // return `scanning new ${ name }s...`;
+      return ''
     }
 
     return (
@@ -79,17 +80,18 @@ export default SocketNewItemsNotice;
 
 export const Desktop = ({ ...props }: Props) => {
   return (
-    <SocketNewItemsNotice
-      borderRadius={ props.isLoading ? 'sm' : 0 }
-      h={ props.isLoading ? 5 : 'auto' }
-      maxW={ props.isLoading ? '215px' : undefined }
-      w="100%"
-      mx={ props.isLoading ? 4 : 0 }
-      my={ props.isLoading ? '6px' : 0 }
-      { ...props }
-    >
-      { ({ content }) => <Tr><Td colSpan={ 100 } p={ 0 }>{ content }</Td></Tr> }
-    </SocketNewItemsNotice>
+    // <SocketNewItemsNotice
+    //   borderRadius={ props.isLoading ? 'sm' : 0 }
+    //   h={ props.isLoading ? 5 : 'auto' }
+    //   maxW={ props.isLoading ? '215px' : undefined }
+    //   w="100%"
+    //   mx={ props.isLoading ? 4 : 0 }
+    //   my={ props.isLoading ? '6px' : 0 }
+    //   { ...props }
+    // >
+    //   { ({ content }) => <Tr><Td colSpan={ 100 } p={ 0 }>{ content }</Td></Tr> }
+    // </SocketNewItemsNotice>
+    <></>
   );
 };
 

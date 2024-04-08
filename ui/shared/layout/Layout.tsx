@@ -17,7 +17,7 @@ const LayoutDefault = ({ children }: Props) => {
       <Layout.MainArea>
         <Layout.SideBar/>
         <Layout.MainColumn>
-          <HeaderAlert/>
+          {/* <HeaderAlert/> */}
           <HeaderDesktop/>
           <AppErrorBoundary>
             <Layout.Content>

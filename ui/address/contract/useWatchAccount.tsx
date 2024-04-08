@@ -5,7 +5,7 @@ import { useConfig } from 'wagmi';
 
 export function getWalletAccount(config: Config) {
   try {
-    return getAccount(config);
+    return getAccount(config as any);
   } catch (error) {
     return null;
   }
@@ -20,7 +20,7 @@ export default function useWatchAccount() {
       return;
     }
 
-    return watchAccount(config, {
+    return watchAccount(config as any, {
       onChange(account) {
         setAccount(account);
       },

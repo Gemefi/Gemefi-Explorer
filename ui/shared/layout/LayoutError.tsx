@@ -17,7 +17,7 @@ const LayoutError = ({ children }: Props) => {
       <Layout.MainArea>
         <Layout.SideBar/>
         <Layout.MainColumn>
-          <HeaderAlert/>
+          {/* <HeaderAlert/> */}
           <HeaderDesktop/>
           <AppErrorBoundary>
             <main>

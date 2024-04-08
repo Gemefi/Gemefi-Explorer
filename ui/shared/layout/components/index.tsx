@@ -16,11 +16,3 @@ export {
   Footer,
   TopRow,
 };
-
-// Container
-//    TopRow
-//    MainArea
-//       SideBar
-//       MainColumn
-//          Content
-//    Footer

@@ -1,19 +1,19 @@
 {
-  "name": "blockscout-frontend",
+  "name": "Gemefi-frontend",
   "version": "1.0.0",
   "private": false,
-  "homepage": "https://github.com/blockscout/frontend#readme",
+  "homepage": "https://github.com/Gemefi/frontend#readme",
   "engines": {
-    "node": "20.11.0",
+    "node": "20.12.1",
     "npm": "10.2.4"
   },
   "scripts": {
     "dev": "./tools/scripts/dev.sh",
     "dev:preset": "./tools/scripts/dev.preset.sh",
     "build": "next build",
-    "build:docker": "docker build --build-arg GIT_COMMIT_SHA=$(git rev-parse --short HEAD) --build-arg GIT_TAG=$(git describe --tags --abbrev=0) -t blockscout-frontend:local ./",
-    "start": "next start",
-    "start:docker:local": "docker run -p 3000:3000 --env-file .env.local blockscout-frontend:local",
+    "build:docker": "docker build --build-arg GIT_COMMIT_SHA=$(git rev-parse --short HEAD) --build-arg GIT_TAG=$(git describe --tags --abbrev=0) -t Gemefi-frontend:local ./",
+    "start": "next start -p 9123",
+    "start:docker:local": "docker run -p 3000:3000 --env-file .env.local Gemefi-frontend:local",
     "start:docker:preset": "./tools/scripts/docker.preset.sh",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:eslint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
@@ -31,8 +31,12 @@
     "test:jest": "jest",
     "test:jest:watch": "jest --watch",
     "favicon:generate:dev": "./tools/scripts/favicon-generator.dev.sh",
-    "monitoring:prometheus:local": "docker run --name blockscout_prometheus -d -p 127.0.0.1:9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus",
-    "monitoring:grafana:local": "docker run -d -p 4000:3000 --name=blockscout_grafana --user $(id -u) --volume $(pwd)/grafana:/var/lib/grafana grafana/grafana-enterprise"
+    "monitoring:prometheus:local": "docker run --name Gemefi_prometheus -d -p 127.0.0.1:9090:9090 -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus",
+    "monitoring:grafana:local": "docker run -d -p 4000:3000 --name=Gemefi_grafana --user $(id -u) --volume $(pwd)/grafana:/var/lib/grafana grafana/grafana-enterprise"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "dependencies": {
     "@chakra-ui/react": "2.7.1",
@@ -67,7 +71,7 @@
     "crypto-js": "^4.2.0",
     "d3": "^7.6.1",
     "dappscout-iframe": "0.2.1",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.10",
     "dom-to-image": "^2.6.0",
     "focus-visible": "^5.2.0",
     "framer-motion": "^6.5.1",
@@ -159,5 +163,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

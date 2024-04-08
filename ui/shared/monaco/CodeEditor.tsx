@@ -65,16 +65,16 @@ const CodeEditor = ({ data, remappings, libraries, language, mainFile, contractN
   const editorLanguage = language === 'vyper' ? 'elixir' : 'sol';
 
   React.useEffect(() => {
-    instance?.editor.setTheme(colorMode === 'light' ? 'blockscout-light' : 'blockscout-dark');
+    instance?.editor.setTheme(colorMode === 'light' ? 'Gemefi-light' : 'Gemefi-dark');
   }, [ colorMode, instance?.editor ]);
 
   const handleEditorDidMount = React.useCallback((editor: monaco.editor.IStandaloneCodeEditor, monaco: Monaco) => {
     setInstance(monaco);
     setEditor(editor);
 
-    monaco.editor.defineTheme('blockscout-light', themes.light);
-    monaco.editor.defineTheme('blockscout-dark', themes.dark);
-    monaco.editor.setTheme(colorMode === 'light' ? 'blockscout-light' : 'blockscout-dark');
+    monaco.editor.defineTheme('Gemefi-light', themes.light);
+    monaco.editor.defineTheme('Gemefi-dark', themes.dark);
+    monaco.editor.setTheme(colorMode === 'light' ? 'Gemefi-light' : 'Gemefi-dark');
 
     const loadedModels = monaco.editor.getModels();
     const loadedModelsPaths = loadedModels.map((model) => model.uri.path);

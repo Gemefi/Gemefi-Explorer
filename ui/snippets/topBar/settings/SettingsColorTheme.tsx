@@ -32,12 +32,10 @@ const SettingsColorTheme = () => {
 
     const nextColorMode = (() => {
       if (!cookieColorMode) {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return window.matchMedia('(prefers-color-scheme: light)').matches ?  'dark' : 'light';
       }
-
       return cookieColorMode;
     })();
-
     const colorModeThemes = COLOR_THEMES.filter(theme => theme.colorMode === nextColorMode);
     const fallbackHex = colorModeThemes[colorModeThemes.length - 1].hex;
     const cookieHex = cookies.get(cookies.NAMES.COLOR_MODE_HEX) ?? fallbackHex;
@@ -64,7 +62,7 @@ const SettingsColorTheme = () => {
 
   return (
     <div>
-      <Box fontWeight={ 600 }>Color theme</Box>
+      <Box fontWeight={ 600 }>Gemefi theme</Box>
       <Box color="text_secondary" mt={ 1 } mb={ 2 }>{ activeTheme?.label }</Box>
       <Flex>
         { COLOR_THEMES.map((theme) => (

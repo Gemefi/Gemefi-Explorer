@@ -17,7 +17,7 @@ const currentChain = {
   },
   blockExplorers: {
     'default': {
-      name: 'Blockscout',
+      name: 'Gemefi',
       url: config.app.baseUrl,
     },
   },

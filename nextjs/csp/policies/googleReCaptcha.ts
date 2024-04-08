@@ -12,7 +12,7 @@ export function googleReCaptcha(): CspDev.DirectiveDescriptor {
       'https://www.google.com/recaptcha/api.js',
       'https://www.gstatic.com',
       'https://translate.google.com',
-      '\'sha256-FDyPg8CqqIpPAfGVKx1YeKduyLs0ghNYWII21wL+7HM=\'',
+      // '\'sha256-FDyPg8CqqIpPAfGVKx1YeKduyLs0ghNYWII21wL+7HM=\'',
     ],
     'style-src': [
       'https://www.gstatic.com',

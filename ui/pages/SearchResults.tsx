@@ -205,7 +205,7 @@ const SearchResultsPageContent = () => {
       <Layout.MainArea>
         <Layout.SideBar/>
         <Layout.MainColumn>
-          <HeaderAlert/>
+          {/* <HeaderAlert/> */}
           <HeaderDesktop renderSearchBar={ renderSearchBar }/>
           <AppErrorBoundary>
             <Layout.Content>

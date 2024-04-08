@@ -55,14 +55,14 @@ const MarketplaceAppContent = ({ address, data, isPending }: Props) => {
   useEffect(() => {
     if (data && !isFrameLoading) {
       const message = {
-        blockscoutColorMode: colorMode,
-        blockscoutRootUrl: config.app.baseUrl + route({ pathname: '/' }),
-        blockscoutAddressExplorerUrl: config.app.baseUrl + route({ pathname: '/address/[hash]', query: { hash: '' } }),
-        blockscoutTransactionExplorerUrl: config.app.baseUrl + route({ pathname: '/tx/[hash]', query: { hash: '' } }),
-        blockscoutNetworkName: config.chain.name,
-        blockscoutNetworkId: Number(config.chain.id),
-        blockscoutNetworkCurrency: config.chain.currency,
-        blockscoutNetworkRpc: config.chain.rpcUrl,
+        GemefiColorMode: colorMode,
+        GemefiRootUrl: config.app.baseUrl + route({ pathname: '/' }),
+        GemefiAddressExplorerUrl: config.app.baseUrl + route({ pathname: '/address/[hash]', query: { hash: '' } }),
+        GemefiTransactionExplorerUrl: config.app.baseUrl + route({ pathname: '/tx/[hash]', query: { hash: '' } }),
+        GemefiNetworkName: config.chain.name,
+        GemefiNetworkId: Number(config.chain.id),
+        GemefiNetworkCurrency: config.chain.currency,
+        GemefiNetworkRpc: config.chain.rpcUrl,
       };
 
       iframeRef?.current?.contentWindow?.postMessage(message, data.url);

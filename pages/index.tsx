@@ -1,11 +1,13 @@
+import dynamic from 'next/dynamic';
 import React from 'react';
 
-import type { NextPageWithLayout } from 'nextjs/types';
 
+import type { NextPageWithLayout } from 'nextjs/types';
 import PageNextJs from 'nextjs/PageNextJs';
 
-import Home from 'ui/pages/Home';
 import LayoutHome from 'ui/shared/layout/LayoutHome';
+
+const Home = dynamic(() => import('ui/pages/Home'), { ssr: false, });
 
 const Page: NextPageWithLayout = () => {
   return (

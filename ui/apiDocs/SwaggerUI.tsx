@@ -16,7 +16,7 @@ import 'swagger-ui-react/swagger-ui.css';
 
 const feature = config.features.restApiDocs;
 
-const DEFAULT_SERVER = 'blockscout.com/poa/core';
+const DEFAULT_SERVER = 'gemefi.io/poa/core';
 
 const NeverShowInfoPlugin = () => {
   return {

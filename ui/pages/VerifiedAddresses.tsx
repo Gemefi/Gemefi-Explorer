@@ -200,10 +200,10 @@ const VerifiedAddresses = () => {
       ) }
       <AccountPageDescription allowCut={ false }>
         <span>
-          Verify ownership of a smart contract address to easily update information in Blockscout.
+          Verify ownership of a smart contract address to easily update information in Gemefi.
           You will sign a single message to verify contract ownership.
           Once verified, you can update token information, address name tags, and address labels from the
-          Blockscout console without needing to sign additional messages.
+          Gemefi console without needing to sign additional messages.
         </span>
         <chakra.p fontWeight={ 600 } mt={ 5 }>
           Before starting, make sure that:
@@ -212,7 +212,7 @@ const VerifiedAddresses = () => {
           <ListItem>The source code for the smart contract is deployed on “{ config.chain.name }”.</ListItem>
           <ListItem>
             <span>The source code is verified (if not yet verified, you can use </span>
-            <Link href="https://docs.blockscout.com/for-users/verifying-a-smart-contract" target="_blank">this tool</Link>
+            <Link href="https://docs.gemefi.io/for-users/verifying-a-smart-contract" target="_blank">this tool</Link>
             <span>).</span>
           </ListItem>
         </OrderedList>
