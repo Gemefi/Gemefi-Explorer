@@ -31,48 +31,48 @@ const Footer = () => {
   const apiVersionUrl = getApiVersionUrl(backendVersionData?.backend_version);
   const issueUrl = useIssueUrl(backendVersionData?.backend_version);
   const Gemefi_LINKS = [
-    {
-      icon: 'edit' as const,
-      iconSize: '16px',
-      text: 'Submit an issue',
-      url: issueUrl,
-    },
-    {
-      icon: 'social/canny' as const,
-      iconSize: '20px',
-      text: 'Feature request',
-      url: 'https://Gemefi.canny.io/feature-requests',
-    },
+    // {
+    //   icon: 'edit' as const,
+    //   iconSize: '16px',
+    //   text: 'Submit an issue',
+    //   url: issueUrl,
+    // },
+    // {
+    //   icon: 'social/canny' as const,
+    //   iconSize: '20px',
+    //   text: 'Feature request',
+    //   url: 'https://Gemefi.canny.io/feature-requests',
+    // },
     {
       icon: 'social/git' as const,
       iconSize: '18px',
       text: 'Contribute',
-      url: 'https://github.com/Gemefi/Gemefi',
+      url: 'https://github.com/gemefi',
     },
     {
       icon: 'social/tweet' as const,
       iconSize: '18px',
       text: 'Twitter',
-      url: 'https://www.twitter.com/Gemeficom',
+      url: 'https://twitter.com/GemefiHQ',
     },
     {
       icon: 'social/discord' as const,
       iconSize: '24px',
       text: 'Discord',
-      url: 'https://discord.gg/Gemefi',
+      url: 'https://discord.com/invite/gemefi',
     },
-    {
-      icon: 'discussions' as const,
-      iconSize: '20px',
-      text: 'Discussions',
-      url: 'https://github.com/orgs/Gemefi/discussions',
-    },
-    {
-      icon: 'donate' as const,
-      iconSize: '20px',
-      text: 'Donate',
-      url: 'https://github.com/sponsors/Gemefi',
-    },
+    // {
+    //   icon: 'discussions' as const,
+    //   iconSize: '20px',
+    //   text: 'Discussions',
+    //   url: 'https://github.com/orgs/Gemefi/discussions',
+    // },
+    // {
+    //   icon: 'donate' as const,
+    //   iconSize: '20px',
+    //   text: 'Donate',
+    //   url: 'https://github.com/sponsors/Gemefi',
+    // },
   ];
 
   const frontendLink = (() => {
@@ -210,8 +210,8 @@ const Footer = () => {
         }}
         gridTemplateRows={{
           base: 'auto',
-          lg: 'repeat(3, auto)',
-          xl: 'repeat(2, auto)',
+          lg: 'repeat(1, auto)',
+          xl: 'repeat(1, auto)',
         }}
         gridAutoFlow={{ base: 'row', lg: 'column' }}
         alignContent="start"
