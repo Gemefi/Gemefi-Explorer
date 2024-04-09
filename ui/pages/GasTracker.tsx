@@ -66,7 +66,6 @@ const GasTracker = () => {
       <PageTitle
         title="Gas tracker"
         secondRow={ titleSecondRow }
-        withTextAd
       />
       { data?.gas_prices && <GasTrackerPrices prices={ data.gas_prices } isLoading={ isLoading }/> }
       <Box mt={ 12 }>

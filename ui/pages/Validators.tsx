@@ -135,7 +135,7 @@ const Validators = () => {
 
   return (
     <Box>
-      <PageTitle title="Validators" withTextAd/>
+      <PageTitle title="Validators"/>
       <ValidatorsCounters/>
       <DataListDisplay
         isError={ isError }
